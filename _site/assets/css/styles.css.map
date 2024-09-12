@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../_sass/main.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACI","sourcesContent":[".current {\r\n  color: green;\r\n}\r\n\r\nbody {\r\n    font-family: Arial, sans-serif;\r\n}"],"file":"styles.css"}
+{"version":3,"sourceRoot":"","sources":["../../_sass/main.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACI","sourcesContent":[".current {\r\n  color: green;\r\n}\r\n\r\nbody {\r\n    font-family: Helvetica, sans-serif;\r\n}"],"file":"styles.css"}
