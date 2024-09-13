@@ -4,4 +4,6 @@ title: About
 ---
 # About page
 
-This page tells you a little bit about me.
+The domain LTPHub.com of this website is short for ***[Long-Term Potentiation](https://en.wikipedia.org/wiki/Long-term_potentiation) Hub***.
+
+And the current chief writer & editor is [老孙](/authors/老孙.html).
