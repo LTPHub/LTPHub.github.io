@@ -3,5 +3,17 @@
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", "Fangsong", sans-serif;
+  padding: 0 20px; /* 增加页面左右两侧的内边距，保持内容不贴边 */
+}
+
+/* 文章正文段落样式 */
+p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* 文章标题样式 */
+h1 {
+  margin-top: 20px; /* 让标题与页面顶部保持距离 */
 }
