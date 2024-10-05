@@ -10,10 +10,20 @@
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true // 允许在公式中使用反斜杠
+        },
+        options: {
+          renderActions: {
+            findText: [10, function (doc) {
+              // 强制重新渲染
+              MathJax.typeset();
+            }, '']
+          }
         }
       };
-    </script>    
+    </script>
+    
 
 
 
