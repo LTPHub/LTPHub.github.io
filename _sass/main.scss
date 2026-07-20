@@ -1,10 +1,32 @@
-.current {
-  color: green;
+/* 1. 定义颜色变量 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --current-color: green;
 }
 
+/* 2. 暗黑模式下的颜色变量重写 */
+[data-theme="dark"] {
+  --bg-color: #121212;        /* 深色背景 */
+  --text-color: #e0e0e0;      /* 浅灰文本，比纯白更护眼 */
+  --current-color: #4caf50;   /* 暗色模式下稍微调亮一点的绿色 */
+}
+
+/* 3. 应用样式 */
 body {
   font-family: "Segoe UI", "Fangsong", sans-serif;
   padding: 0 20px; /* 增加页面左右两侧的内边距，保持内容不贴边 */
+  
+  /* 使用变量绑定颜色 */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  
+  /* 添加颜色过渡效果，让切换更平滑 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.current {
+  color: var(--current-color);
 }
 
 /* 文章正文段落样式 */
