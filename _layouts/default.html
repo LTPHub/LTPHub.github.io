@@ -5,13 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- 防闪烁脚本：优先读取本地存储或系统主题设置 -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
   </head>
   <body>
+    <!-- 切换模式按钮 -->
+    <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme" style="position: fixed; top: 15px; right: 20px; z-index: 9999; background: none; border: 1px solid currentColor; border-radius: 20px; padding: 5px 10px; cursor: pointer; color: inherit;">
+      <span id="theme-toggle-icon">🌙</span>
+    </button>
+
     {% include navigation.html %}
     {{ content }}
     
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- add MathJax script for LaTeX display -->
+
+    <!-- 暗黑模式切换控制脚本 -->
+    <script>
+      function updateToggleIcon(theme) {
+        const icon = document.getElementById('theme-toggle-icon');
+        if (icon) {
+          icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+      }
+
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', targetTheme);
+        localStorage.setItem('theme', targetTheme);
+        updateToggleIcon(targetTheme);
+      }
+
+      // 初始化按钮图标
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        updateToggleIcon(currentTheme);
+      });
+    </script>
   </body>
 </html>
